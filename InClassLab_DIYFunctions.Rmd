@@ -16,15 +16,25 @@ The questions from your notes today are below, please copy your answers them her
 1. Write your own function that takes the temperature in Fahrenheit as an argument and returns the Celcius equivalent. 
 
 ```{R}
+f2c <- function(fahrenheit) {
+  celcius <- (fahrenheit - 32) * 5 / 9 
+  return(celcius)
+}
 
-
+f2c(76)
 ```
 
 2. Expand that function so that it takes a temperature in Fahrenheit and a distance in feet and returns **both** the temperature in Celcius and the distance in meters (you'll likely need to remember the `c()` function!)
 
 
 ```{r}
+convert <- function(fahrenheit, feet) {
+  celcius <- (fahrenheit - 32) * 5 / 9 
+  meters <- (feet * 0.3048)
+  return(c(celcius, meters))
+}
 
+convert(35, 3)
 
 ```
 
@@ -33,6 +43,22 @@ The questions from your notes today are below, please copy your answers them her
 
 ```{R}
 
+number <- function(num) {
+  if (num < 0) {
+    print("This is a negative number")
+  } else if (num == 0) {
+    print("This number in equal to 0")
+  }
+  else {
+    print("This is a positive number")
+  }
+}
+
+
+number (80)
+number (0)
+
+
 
 ```
 
@@ -40,7 +66,17 @@ The questions from your notes today are below, please copy your answers them her
    + Don't use `abs()`. Use the flow from problem 1 and multiply by negative one as necessary. 
    
 ```{r}
+absolute <- function(num){
+  if (num < 0) {
+   return (num * (-1))
+  }
+  else {
+    return (num)
+  }
+}
 
+absolute(-90)
+absolute(45)
 
 ```
 
@@ -48,7 +84,17 @@ The questions from your notes today are below, please copy your answers them her
    + There are functions that check and return T/F: `is.numeric()` or `is.character()` would be relevant here
    
 ```{r}
+err_check <- function(test) {
+  if (is.numeric(test)) {
+    print('This is a numerical value.')
+  }
+  else if (is.character(test)) {
+    print('Please pass a numerical value to this function.')
+  }
+}
 
+err_check(90)
+err_check('blue')
 
 
 ```
